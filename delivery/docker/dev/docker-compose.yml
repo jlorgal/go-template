@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  demo:
+    build: 
+      context: ../../../
+      dockerfile: delivery/docker/dev/Dockerfile
+    links:
+      - mongodb
+    volumes:
+      - ../../../:/root/go/src/github.com/jlorgal/go-template
+    ports:
+      - 8000:8000
+    entrypoint: delivery/docker/dev/entrypoint.sh
+    command: make run
+    environment:
+      MONGO_URL: mongodb
+  
+  mongodb:
+    image: mongo:3.4.9
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null
+
