@@ -3,11 +3,14 @@ LABEL maintainer Jorge Lorenzo <jlorgal@gmail.com>
 
 # Install packages for golang environment
 RUN apk update && \
-    apk add git gcc make libc-dev go
+    apk add --no-cache git gcc make libc-dev go cyrus-sasl-dev docker
+
+ENV PATH=/root/go/bin:${PATH}
 
 # Install golang packages
-RUN go get -u github.com/golang/lint/golint && \
-    go get -u github.com/golang/dep/cmd/dep
+RUN go get -v github.com/golang/lint/golint && \
+    go get -v github.com/golang/dep/cmd/dep && \
+    go get -v gopkg.in/tomb.v2
 
 # Set Go project
 ARG PROJECT=github.com/jlorgal/go-template

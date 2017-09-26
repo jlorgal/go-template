@@ -1,7 +1,7 @@
 # Openstack configuration
 OS_USERNAME    ?= tdaf-jenkins-ost
 # OS_PASSWORD  ?= xxx
-OS_TENANT_NAME ?= 1170-go-template-dev
+OS_TENANT_NAME ?= 1170-go-template-pre
 OS_AUTH_URL    ?= https://openstack-epg.hi.inet:13000/v2.0
 OS_CACERT      ?= openstack/ca_openstack_epg.crt
 
@@ -9,4 +9,4 @@ OS_CACERT      ?= openstack/ca_openstack_epg.crt
 # GITHUB_TOKEN ?= xxx
 
 # Docker configuration
-DOCKER_PROMOTION_TAG ?= dev
+DOCKER_PROMOTION_TAG ?= pre

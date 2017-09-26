@@ -6,6 +6,6 @@ RUN apk update
 WORKDIR /opt/demo
 
 COPY delivery/docker/release/entrypoint.sh /opt/demo/
-COPY bin/ /opt/demo/
+COPY build/bin/ /opt/demo/
 
 ENTRYPOINT ["entrypoint.sh"]
